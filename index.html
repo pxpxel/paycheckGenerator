@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body>
+        <form id="paycheckForm">
+            <p>
+                <p><b>Elliot:</b></p>
+                <input name="nonElliots" type="checkbox" id="nonElliots" />Include
+                    <span id="tooltipNonElliot" class="tooltip" onmouseover="tooltipMouseover(this.id)" onmouseleave="tooltipMouseleave(this.id)">non-Elliot skins
+                        <span id="listNonElliots" class="tooltiptext"></span>
+                </span>
+                <br>
+                <input name="elliotMilestones" type="checkbox" id="milestones" />Separate Milestones (I, II, III, IV)
+            </p>
+            <p>
+                <p><b>Chance:</b></p>
+                <input name="nonChances" type="checkbox" id="nonChances" />Include
+                    <span id="tooltipNonChance" class="tooltip" onmouseover="tooltipMouseover(this.id)" onmouseleave="tooltipMouseleave(this.id)">non-Chance skins
+                        <span id="listNonChances" class="tooltiptext"></span>
+                </span>
+                <br>
+                <input name="chanceMilestones" type="checkbox" id="milestones" />Separate Milestones (I, II, III, IV)
+            </p>
+            
+            <p><input type="submit" value="Generate Paycheck..."></p>
+
+            <div id="generated"></div>
+        </form>
+    </body>
+</html>
