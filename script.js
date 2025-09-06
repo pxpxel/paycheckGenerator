@@ -6,100 +6,118 @@ const nonChances = ["Mysterious Sheriff", "Jeff", "Pico", "Chanceton"];
 
 const milestones = ["I", "II", "III", "IV"];
 
-var lists, results;
-
-
-var listNonElliots = "";
-for (let i = 0; i < nonElliots.length; i++) {
-  listNonElliots += (nonElliots[i]);
-  if (i === nonElliots.length - 1) break;
-  else listNonElliots += ", ";
-}
-document.getElementById("listNonElliots").innerHTML = listNonElliots;
-
-var listNonChances = "";
-for (let i = 0; i < nonChances.length; i++) {
-  listNonChances += (nonChances[i]);
-  if (i === nonChances.length - 1) break;
-  else listNonChances += ", ";
-}
-document.getElementById("listNonChances").innerHTML = listNonChances;
 
 function tooltipMouseover(id) {
-  document.getElementById(id).style.visibility = visible;
+    document.getElementById(id).style.visibility = "visible";
 }
 
 function tooltipMouseleave(id) {
-  document.getElementById(id).style.visibility = hidden;
+    document.getElementById(id).style.visibility = "hidden";
 }
 
-tooltipNonElliot.addEventListener("mouseover", function() {
-  document.getElementById("listNonElliots").style.visibility = visible;
-});
+function randomList(list) {
+    return Math.floor(Math.random() * list.length);
+}
 
-tooltipNonElliot.addEventListener("mouseleave", function() {
-  document.getElementById("listNonElliots").style.visibility = hidden;
-})
+function rollBoth(lists) {
+    var elliotResult = randomList(lists[0]), chanceResult = randomList(lists[1]);
 
-var formSubmit = document.getElementById("paycheckForm");
-var formOutput = "";
+    var results = [elliotResult, chanceResult];
 
-formSubmit.addEventListener("submit", function(e) {
-  e.preventDefault();
-  var formData = new FormData(formSubmit);
-  for (var [key, value] of formData) {
-    formOutput += (key + ": " + value);
-  }
+    displayResult(lists, results);
+}
 
-  var elliotList = elliots;
-  var chanceList = chances;
+function displayResult(lists, results) {
+    document.getElementById("generated").innerHTML = (
+        `<p><b>Your new Paycheck is...</b></p>
+        Elliot's <b>${lists[0][results[0]]}</b> skin ❤️ Chance's <b>${lists[1][results[1]]}</b> skin!`
+    );
 
-  for (let [key, value] of formData) {
-    switch (key) {
-      case "nonElliots":
-        if (value == "on") {
-          nonElliots.forEach(skin => {
-            elliotList.push(skin);
-          });
-        }
-        break;
-      case "nonChances":
-        if (value == "on") {
-          nonChances.forEach(skin => {
-            chanceList.push(skin);
-          })
-        }
-        break;
+    document.getElementById("rerollForm").innerHTML = (
+        `<form id="rerollForm">
+            <input type="hidden" name="elliotList" value=${lists[0]}>
+            <input type="hidden" name="chanceList" value=${lists[1]}>
+            <input type="hidden" name="elliotResult" value=${results[0]}>
+            <input type="hidden" name="chanceResult" value=${results[1]}>
+
+            <input type="submit" value="Reroll Elliot" name="rerollElliot">
+            <input type="submit" value="Reroll Chance" name="rerollChance">
+        </form>`
+    );
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var listNonElliots = "";
+    for (let i = 0; i < nonElliots.length; i++) {
+        listNonElliots += (nonElliots[i]);
+        if (i === nonElliots.length - 1) break;
+        else listNonElliots += ", ";
     }
-  }
+    document.getElementById("listNonElliots").innerHTML = listNonElliots;
 
-  lists = [elliotList, chanceList];
+    var listNonChances = "";
+    for (let i = 0; i < nonChances.length; i++) {
+        listNonChances += (nonChances[i]);
+        if (i === nonChances.length - 1) break;
+        else listNonChances += ", ";
+    }
+    document.getElementById("listNonChances").innerHTML = listNonChances;
 
-  rollBoth();
+    var formSubmit = document.getElementById("paycheckForm");
+
+    formSubmit.addEventListener("submit", function(e) {
+        e.preventDefault();
+        var formData = new FormData(formSubmit);
+
+        var elliotList = elliots;
+        var chanceList = chances;
+
+        for (let [key, value] of formData) {
+            switch (key) {
+            case "nonElliots":
+                if (value == "on") {
+                    nonElliots.forEach(skin => {
+                        elliotList.push(skin);
+                    });
+                }
+                break;
+            case "nonChances":
+                if (value == "on") {
+                    nonChances.forEach(skin => {
+                        chanceList.push(skin);
+                    });
+                }
+                break;
+            }
+        }
+
+        lists = [elliotList, chanceList];
+
+        rollBoth(lists);
+
+
+        var rerollForm = rerollFormDiv.getElementById("rerollForm");
+        rerollForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            var formData = new FormData(rerollForm), results = [], lists = [];
+
+            lists[0] = formData["elliotList"];
+            lists[1] = formData["chanceList"];
+            results[0] = formData["elliotResults"];
+            results[1] = formData["chanceResults"];
+
+            console.log(e.submitter.name);
+
+            switch (e.submitter.name) {
+                case "rerollElliot":
+                    results[0] = randomList(lists[0]);
+                    break;
+                case "rerollChance":
+                    results[1] = randomList(lists[1]);
+                    break;
+            }
+            displayResult(lists, results);
+        });
+    });
 });
-
-function randomList(length) {
-  return Math.floor(Math.random() * length);
-}
-
-function rollBoth() {
-  var elliotResult = randomList(lists[0].length), chanceResult = randomList(lists[1].length);
-  
-  results = [elliotResult, chanceResult];
-
-  displayResult();
-}
-
-function reroll(character) {
-  if (character == 0) results[0] = randomList(list[0].length);
-  else results[1] = randomList(list[1].length);
-  displayResult();
-}
-
-function displayResult() {
-  console.log(lists);
-  console.log(results);
-  document.getElementById("generated").innerHTML = (
-    "<p><b>Your new Paycheck is...</b></p> Elliot's <b>" + lists[0][results[0]] + "</b> skin ❤️ Chance's <b>" + lists[1][results[1]] + "</b> skin! <p><button onclick='reroll(0)'>Reroll Elliot</button> <button onclick='reroll(1)'>Reroll Chance</button></p>"
-  );
-}
