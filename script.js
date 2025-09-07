@@ -1,10 +1,16 @@
-const elliots = ["Default", "Milestone", "Supplier", "Milkman", "Pizza Man", "Cake", "Barista", "Paperpal", "Casual", "Bandit", "Manager", "Neo", "Cashier", "Ellioto Spaghetti", "Summer", "Retro", "Alien", "Messenger", "Dog", "Gummy", "Treehugger", "Artist", "Rudolph"];
+const elliots = ["Default", "Supplier", "Milkman", "Pizza Man", "Cake", "Barista", "Paperpal", "Casual", "Bandit", "Manager", "Neo", "Cashier", "Ellioto Spaghetti", "Summer", "Retro", "Alien", "Messenger", "Dog", "Gummy", "Treehugger", "Artist", "Rudolph"];
 const nonElliots = ["Lulu", "Baker", "Sally", "Supermarket", "Bobo", "Caretaker", "Jordan", "Dued1", "Medic", "Parlor Gubby", "Tom", "Friend", "Monster", "Mercurial"];
 
-const chances = ["Default", "Milestone", "Homeless", "Double Crossed", "Agent", "Blue Day", "Pink Day", "Workclock", "LMaD", "Fast Food", "Lods of Emone", "Take a Chance", "Federation", "Dog", "Mr. WorldWide", "Pride", "Alien", "Nayn", "Multi-Colored Bettor", "Outlaw", "Cool Bones", "Avian Sight", "Plushy", "Flipnote", "Retro", "Golden", "ULTRAKILL", "Mirror", "Artist", "BrawlR Clockwork"];
+const chances = ["Default", "Homeless", "Double Crossed", "Agent", "Blue Day", "Pink Day", "Workclock", "LMaD", "Fast Food", "Lods of Emone", "Take a Chance", "Federation", "Dog", "Mr. WorldWide", "Pride", "Alien", "Nayn", "Multi-Colored Bettor", "Outlaw", "Cool Bones", "Avian Sight", "Plushy", "Flipnote", "Retro", "Golden", "ULTRAKILL", "Mirror", "Artist", "BrawlR Clockwork"];
 const nonChances = ["Mysterious Sheriff", "Jeff", "Pico", "Chanceton"];
 
-const milestones = ["I", "II", "III", "IV"];
+const milestones = ["Milestone I", "Milestone II", "Milestone III", "Milestone IV"];
+
+fetch("data.json").then(response => {
+    return response.json();
+}).then(data => {
+    console.log(data);
+});
 
 
 function tooltipMouseover(id) {
@@ -27,22 +33,45 @@ function rollBoth(lists) {
     displayResult(lists, results);
 }
 
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function reroll(character) {
+    console.log(`rerolling ${character}`);
+    var lists = JSON.parse(getCookie("lists")), results = JSON.parse(getCookie("results"));
+    console.log(lists);
+    console.log(results);
+    if (character == 0) {
+        results[0] = randomList(lists[0]);
+    } else {
+        results[1] = randomList(lists[1]);
+    }
+    displayResult(lists, results);
+}
+
 function displayResult(lists, results) {
     document.getElementById("generated").innerHTML = (
         `<p><b>Your new Paycheck is...</b></p>
-        Elliot's <b>${lists[0][results[0]]}</b> skin ❤️ Chance's <b>${lists[1][results[1]]}</b> skin!`
+        Elliot's <b>${lists[0][results[0]]}</b> skin ❤️ Chance's <b>${lists[1][results[1]]}</b> skin!
+        <img src="${skins.images.elliots[lists[0][results[0]]]}">
+        <img src="${skins.images.chances[lists[1][results[1]]]}">`
     );
 
-    document.getElementById("rerollForm").innerHTML = (
-        `<form id="rerollForm">
-            <input type="hidden" name="elliotList" value=${lists[0]}>
-            <input type="hidden" name="chanceList" value=${lists[1]}>
-            <input type="hidden" name="elliotResult" value=${results[0]}>
-            <input type="hidden" name="chanceResult" value=${results[1]}>
+    var stringLists = JSON.stringify(lists), stringResults = JSON.stringify(results);
+    document.cookie = `lists=${stringLists}`;
+    document.cookie = `results=${stringResults}`;
 
-            <input type="submit" value="Reroll Elliot" name="rerollElliot">
-            <input type="submit" value="Reroll Chance" name="rerollChance">
-        </form>`
+    document.getElementById("reroll").innerHTML = (
+        `<button onclick="reroll(0)">Reroll Elliot</button>
+        <button onclick="reroll(1)">Reroll Chance</button>`
     );
 }
 
@@ -82,6 +111,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
                 break;
+            case "elliotMilestones":
+                if (value == "on") {
+                    milestones.forEach(skin => {
+                        elliotList.push(skin);
+                    });
+                } else elliotList.push("Milestone");
+                break;
             case "nonChances":
                 if (value == "on") {
                     nonChances.forEach(skin => {
@@ -89,35 +125,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
                 break;
+            case "chanceMilestones":
+                if (value == "on") {
+                    milestones.forEach(skin => {
+                        chanceList.push(skin);
+                    });
+                } else chanceList.push("Milestone");
             }
         }
 
         lists = [elliotList, chanceList];
 
         rollBoth(lists);
-
-
-        var rerollForm = rerollFormDiv.getElementById("rerollForm");
-        rerollForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            var formData = new FormData(rerollForm), results = [], lists = [];
-
-            lists[0] = formData["elliotList"];
-            lists[1] = formData["chanceList"];
-            results[0] = formData["elliotResults"];
-            results[1] = formData["chanceResults"];
-
-            console.log(e.submitter.name);
-
-            switch (e.submitter.name) {
-                case "rerollElliot":
-                    results[0] = randomList(lists[0]);
-                    break;
-                case "rerollChance":
-                    results[1] = randomList(lists[1]);
-                    break;
-            }
-            displayResult(lists, results);
-        });
     });
 });
+    
