@@ -6,10 +6,12 @@ const nonChances = ["Mysterious Sheriff", "Jeff", "Pico", "Chanceton"];
 
 const milestones = ["Milestone I", "Milestone II", "Milestone III", "Milestone IV"];
 
+var skins;
+
 fetch("data.json").then(response => {
     return response.json();
 }).then(data => {
-    console.log(data);
+    skins = data;
 });
 
 
