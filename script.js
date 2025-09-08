@@ -62,7 +62,7 @@ function reroll(character) {
 function displayResult(lists, results) {
     document.getElementById("generated").innerHTML = (
         `<p><b>Your new Paycheck is...</b></p>
-        Elliot's <b>${lists[0][results[0]]}</b> skin ❤️ Chance's <b>${lists[1][results[1]]}</b> skin!
+        <p>Elliot's <b>${lists[0][results[0]]}</b> skin ❤️ Chance's <b>${lists[1][results[1]]}</b> skin!</p>
         <img src="${skins.images.elliots[lists[0][results[0]]]}">
         <img src="${skins.images.chances[lists[1][results[1]]]}">`
     );
