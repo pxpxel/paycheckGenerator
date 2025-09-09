@@ -1,10 +1,12 @@
-const elliots = ["Default", "Supplier", "Milkman", "Pizza Man", "Cake", "Barista", "Paperpal", "Casual", "Bandit", "Manager", "Neo", "Cashier", "Ellioto Spaghetti", "Summer", "Retro", "Alien", "Messenger", "Dog", "Gummy", "Treehugger", "Artist", "Rudolph"];
+const elliots = ["Default", "Supplier", "Milkman", "Pizza Man", "Cake", "Barista", "Paperpal", "Casual", "Bandit", "Manager", "Neo", "Ellioto Spaghetti", "Summer", "Retro", "Alien", "Messenger", "Dog", "Gummy", "Treehugger", "Artist", "Rudolph"];
 const nonElliots = ["Lulu", "Baker", "Sally", "Supermarket", "Bobo", "Caretaker", "Jordan", "Dued1", "Medic", "Parlor Gubby", "Tom", "Friend", "Monster", "Mercurial"];
 
 const chances = ["Default", "Homeless", "Double Crossed", "Agent", "Blue Day", "Pink Day", "Workclock", "LMaD", "Fast Food", "Lods of Emone", "Take a Chance", "Federation", "Dog", "Mr. WorldWide", "Pride", "Alien", "Nayn", "Multi-Colored Bettor", "Outlaw", "Cool Bones", "Avian Sight", "Plushy", "Flipnote", "Retro", "Golden", "ULTRAKILL", "Mirror", "Artist", "BrawlR Clockwork"];
-const nonChances = ["Mysterious Sheriff", "Jeff", "Pico", "Chanceton"];
+const nonChances = ["Mysterious Sheriff", "Jeff", "Chanceton"];
 
 const milestones = ["Milestone I", "Milestone II", "Milestone III", "Milestone IV"];
+
+var music = new Audio("https://static.wikia.nocookie.net/forsaken2024/images/8/8b/NewRestingPlace.mp3");
 
 var skins;
 
@@ -63,8 +65,8 @@ function displayResult(lists, results) {
     document.getElementById("generated").innerHTML = (
         `<p><b>Your new Paycheck is...</b></p>
         <p>Elliot's <b>${lists[0][results[0]]}</b> skin ❤️ Chance's <b>${lists[1][results[1]]}</b> skin!</p>
-        <img src="${skins.images.elliots[lists[0][results[0]]]}">
-        <img src="${skins.images.chances[lists[1][results[1]]]}">`
+        <img src="${skins.images.elliots[lists[0][results[0]]]}" class="result">
+        <img src="${skins.images.chances[lists[1][results[1]]]}" class="result">`
     );
 
     var stringLists = JSON.stringify(lists), stringResults = JSON.stringify(results);
@@ -72,13 +74,19 @@ function displayResult(lists, results) {
     document.cookie = `results=${stringResults}`;
 
     document.getElementById("reroll").innerHTML = (
-        `<button onclick="reroll(0)">Reroll Elliot</button>
-        <button onclick="reroll(1)">Reroll Chance</button>`
+        `<button class="submit" onclick="reroll(0)">Reroll Elliot</button>
+        <button class="submit" onclick="reroll(1)">Reroll Chance</button>`
     );
+}
+
+function playMusic() {
+    if (music.paused != true) music.pause();
+    else music.play();
 }
 
 
 document.addEventListener('DOMContentLoaded', function() {
+
     var listNonElliots = "";
     for (let i = 0; i < nonElliots.length; i++) {
         listNonElliots += (nonElliots[i]);

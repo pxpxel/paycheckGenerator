@@ -1,7 +1,82 @@
+body {
+  font-family:'Oswald', sans-serif;
+  font-weight:300;
+  letter-spacing:1px;
+  font-size:1.25em;
+}
+
+.container {
+  display:flexbox;
+  grid-template-columns:auto 20% 20% auto;
+  grid-template-rows:auto auto auto;
+  padding:20px;
+}
+
+header {
+  grid-row:1;
+  grid-column:1 / span 4;
+  text-align:center;
+}
+
+#musicPlayer {
+  grid-column:3;
+  grid-row:2;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+#paycheckForm {
+  grid-column:2;
+}
+
+a {
+  color:black;
+}
+
+a:hover {
+  color:dimgray;
+}
+
+.submit {
+  font-family:'Oswald', sans-serif;
+  font-weight:300;
+  letter-spacing:1px;
+  font-size:1em;
+
+  padding:10px;
+  border:none;
+  background-color:rgb(36, 36, 36);
+  border-radius:10px;
+  color:white;
+}
+
+.submit:hover {
+  background-color:rgb(77, 77, 77);
+}
+
+.imgButton {
+  cursor:pointer;
+  opacity:50%;
+}
+
+.imgButton:hover {
+  opacity:100%;
+}
+
+.imgButton:active {
+  opacity:60%;
+}
+
+sub {
+  font-style:italic;
+  color:grey;
+}
+
 .tooltip {
   position:relative;
   display:inline-block;
-  border-bottom:1px dotted blue;
+  border-bottom:2px dotted grey;
 }
 
 .tooltip .tooltiptext {
@@ -18,4 +93,8 @@
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.result {
+  width:
 }
