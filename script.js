@@ -64,19 +64,22 @@ function reroll(character) {
 function displayResult(lists, results) {
     document.getElementById("generated").innerHTML = (
         `<p><b>Your new Paycheck is...</b></p>
-        <p>Elliot's <b>${lists[0][results[0]]}</b> skin ❤️ Chance's <b>${lists[1][results[1]]}</b> skin!</p>
-        <img src="${skins.images.elliots[lists[0][results[0]]]}" class="result">
-        <img src="${skins.images.chances[lists[1][results[1]]]}" class="result">`
+        <p>Elliot's <b>${lists[0][results[0]]}</b> skin ❤️ Chance's <b>${lists[1][results[1]]}</b> skin!</p>`
+    );
+
+    document.getElementById("generated-elliot").innerHTML = (
+        `<img src="${skins.images.elliots[lists[0][results[0]]]}" class="result">
+        <button class="submit" onclick="reroll(0)">Reroll Elliot</button>`
+    );
+
+    document.getElementById("generated-chance").innerHTML = (
+        `<img src="${skins.images.chances[lists[1][results[1]]]}" class="result">
+        <button class="submit" onclick="reroll(1)">Reroll Chance</button>`
     );
 
     var stringLists = JSON.stringify(lists), stringResults = JSON.stringify(results);
     document.cookie = `lists=${stringLists}`;
     document.cookie = `results=${stringResults}`;
-
-    document.getElementById("reroll").innerHTML = (
-        `<button class="submit" onclick="reroll(0)">Reroll Elliot</button>
-        <button class="submit" onclick="reroll(1)">Reroll Chance</button>`
-    );
 }
 
 function playMusic() {
