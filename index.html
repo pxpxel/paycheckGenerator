@@ -14,50 +14,50 @@
     </head>
 
     <body>
-        <div class="container">
-        <header>
-            <h1><a href=https://x.com/zogzap>@zogzap's</a> Paycheck Generator</h1>
-            <sub>"Note to self ask one of your friends to test the site to put a testimonial here" - @zogzap</sub>
-        </header>
+        <main class="main-container">
+            <div class="plshelp">
+            <header class="header-container">
+                <h1><a href=https://x.com/zogzap>@zogzap's</a> Paycheck Generator</h1>
+                <sub>"Note to self ask one of your friends to test the site to put a testimonial here" - @zogzap</sub>
 
-        <div id="musicPlayer">
-            <p><sub>Click the Bloxy Cola to play music!!!</sub></p>
-            <img src="https://static.wikia.nocookie.net/roblox/images/4/4c/BloxyCola.png" class="imgButton" onclick="playMusic()" width="50px">
-        </div>
+                <div id="musicPlayer">
+                    <sub>Click the Bloxy Cola to play music!!!</sub>
+                    <img src="https://static.wikia.nocookie.net/roblox/images/4/4c/BloxyCola.png" class="imgButton" onclick="playMusic()" width="50px">
+                </div>
+            </header>
 
             <form id="paycheckForm">
-
-                <p>
-                    <h2>Elliot:</h2>
-
-                    <input name="nonElliots" type="checkbox" id="nonElliots" />Include
+                <div class="paycheck-container">
+                    <div class="elliot-container">
+                        <h2>Elliot:</h2>
+                        <input name="nonElliots" type="checkbox" id="nonElliots" />Include
                         <span id="tooltipNonElliot" class="tooltip" onmouseover="tooltipMouseover('listNonElliots')" onmouseleave="tooltipMouseleave('listNonElliots')">non-Elliot skins
                             <span id="listNonElliots" class="tooltiptext"></span>
-                    </span>
+                        </span>
+                        <br>
+                        <input name="elliotMilestones" type="checkbox" id="milestones" />Separate Milestones (I, II, III, IV)
+                    </div>
 
-                    <br>
-
-                    <input name="elliotMilestones" type="checkbox" id="milestones" />Separate Milestones (I, II, III, IV)
-                </p>
-
-                <p>
-                    <h2>Chance:</h2>
-
-                    <input name="nonChances" type="checkbox" id="nonChances" />Include
+                    <div class="chance-container">
+                        <h2>Chance:</h2>
+                        <input name="nonChances" type="checkbox" id="nonChances" />Include
                         <span id="tooltipNonChance" class="tooltip" onmouseover="tooltipMouseover('listNonChances')" onmouseleave="tooltipMouseleave('listNonChances')">non-Chance skins
                             <span id="listNonChances" class="tooltiptext"></span>
-                    </span>
-
-                    <br>
-
-                    <input name="chanceMilestones" type="checkbox" id="milestones" />Separate Milestones (I, II, III, IV)
-                </p>
+                        </span>
+                        <br>
+                        <input name="chanceMilestones" type="checkbox" id="milestones" />Separate Milestones (I, II, III, IV)
+                    </div>
+                </div>
                 
-                <p><input class="submit" type="submit" value="Generate Paycheck..."></p>
-
-                <div id="generated"></div>
-                <div id="reroll"></div>
+                <input class="submit" type="submit" value="Generate Paycheck...">
             </form>
-        </div>
+
+            <div id="generated"></div>
+            <div class="help">
+                <div id="generated-elliot"></div>
+                <div id="generated-chance"></div>
+            </div>
+            </div>
+        </main>
     </body>
 </html>
