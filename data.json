@@ -125,7 +125,9 @@
             "Milestone IV":"https://static.wikia.nocookie.net/forsaken2024/images/d/de/Elliotmilestone4.png/",
             "Treehugger":"https://static.wikia.nocookie.net/forsaken2024/images/3/3e/TreehuggerElliotIcon.png/",
             "Artist":"https://static.wikia.nocookie.net/forsaken2024/images/d/dc/82225745759058.png/",
-            "Monster":"https://static.wikia.nocookie.net/forsaken2024/images/c/c3/Monsterrender.png/"
+            "Monster":"https://static.wikia.nocookie.net/forsaken2024/images/c/c3/Monsterrender.png/",
+            "Rudolph":"https://static.wikia.nocookie.net/forsaken2024/images/8/83/ChristmasElliotIcon.png",
+            "Mercurial":"https://static.wikia.nocookie.net/forsaken2024/images/0/0d/Mercurial_Elliot.png"
         },
         "chances": {
             "Default":"https://static.wikia.nocookie.net/forsaken2024/images/1/16/Chance777Icon.webp/",
@@ -142,7 +144,7 @@
             "Take a Chance":"https://static.wikia.nocookie.net/forsaken2024/images/5/56/Take_a_Chance.png/",
             "Federation":"https://static.wikia.nocookie.net/forsaken2024/images/9/97/FederationChance.png/",
             "Dog":"https://static.wikia.nocookie.net/forsaken2024/images/f/f2/DC2.png/",
-            "Mr. Worldwide":"https://static.wikia.nocookie.net/forsaken2024/images/2/2e/Mistworldwiderend.png/",
+            "Mr. WorldWide":"https://static.wikia.nocookie.net/forsaken2024/images/2/2e/Mistworldwiderend.png/",
             "Pride":"https://static.wikia.nocookie.net/forsaken2024/images/9/93/PrideChanceIconRender.png/",
             "Alien":"https://static.wikia.nocookie.net/forsaken2024/images/e/e2/AlienIcon.png/",
             "Revolver":"https://static.wikia.nocookie.net/forsaken2024/images/5/59/Revolverhahaha.png/",

@@ -1,20 +1,21 @@
+const skinData = {"skins":{"elliots":["Default","Supplier","Milkman","Pizza Man","Cake","Barista","Paperpal","Casual","Bandit","Manager","Neo","Cashier","Ellioto Spaghetti","Summer","Retro","Alien","Messenger","Dog","Gummy","Treehugger","Artist","Rudolph"],"nonElliots":["Lulu","Baker","Sally","Supermarket","Bobo","Caretaker","Jordan","Dued1","Medic","Parlor Gubby","Tom","Friend","Monster","Mercurial"],"chances":["Default","Homeless","Double Crossed","Agent","Blue Day","Pink Day","Workclock","LMaD","Fast Food","Lods of Emone","Take a Chance","Federation","Dog","Mr. WorldWide","Pride","Alien","Nayn","Multi-Colored Bettor","Outlaw","Cool Bones","Avian Sight","Plushy","Flipnote","Retro","Golden","ULTRAKILL","Mirror","Artist","BrawlR Clockwork"],"nonChances":["Mysterious Sheriff","Jeff","Pico","Chanceton","Revolver"],"milestones":["Milestone I","Milestone II","Milestone III","Milestone IV"]},"images":{"elliots":{"Default":"https://static.wikia.nocookie.net/forsaken2024/images/3/37/New_Jason_Elliot.webp","Lulu":"https://static.wikia.nocookie.net/forsaken2024/images/7/7f/SupplierIcon.png","Supplier":"https://static.wikia.nocookie.net/forsaken2024/images/7/7f/SupplierIcon.png","Milkman":"https://static.wikia.nocookie.net/forsaken2024/images/c/c4/MilkmanIcon.png","Pizza Man":"https://static.wikia.nocookie.net/forsaken2024/images/f/fc/Pizzamanicon.png","Cake":"https://static.wikia.nocookie.net/forsaken2024/images/4/4f/CakeElliotRender.png","Barista":"https://static.wikia.nocookie.net/forsaken2024/images/7/76/Barista_Elliot.png","Bobo":"https://static.wikia.nocookie.net/forsaken2024/images/9/95/Bobo_Elliot.png","Paperpal":"https://static.wikia.nocookie.net/forsaken2024/images/2/29/Forsakennews.png","Casual":"https://static.wikia.nocookie.net/forsaken2024/images/9/97/ElliotSkinCasual.png","Bandit":"https://static.wikia.nocookie.net/forsaken2024/images/8/89/83745577531109.png","Baker":"https://static.wikia.nocookie.net/forsaken2024/images/2/24/136843594396325.png","Manager":"https://static.wikia.nocookie.net/forsaken2024/images/5/5f/ElliotSkinsManager.png","Neo":"https://static.wikia.nocookie.net/forsaken2024/images/1/15/97298880541289.png","Caretaker":"https://static.wikia.nocookie.net/forsaken2024/images/8/8c/Caretaker.png","Jordan":"https://static.wikia.nocookie.net/forsaken2024/images/2/2c/Jordan_Elliot.png","Sally":"https://static.wikia.nocookie.net/forsaken2024/images/d/d9/Sally_Elliot.png","Summer":"https://static.wikia.nocookie.net/forsaken2024/images/a/a1/SUMMERPIZZAPARTYYIPPIErender.png","Retro":"https://static.wikia.nocookie.net/forsaken2024/images/b/b5/RetroElliotIcon.png","Nyan":"https://static.wikia.nocookie.net/forsaken2024/images/1/19/Poptartelliot.png/","Alien":"https://static.wikia.nocookie.net/forsaken2024/images/2/26/Elliotalien.png/","Dued1":"https://static.wikia.nocookie.net/forsaken2024/images/0/06/Dued1Elliot.png/","Supermarket":"https://static.wikia.nocookie.net/forsaken2024/images/f/f8/Supermarket_Elliot.png/","Messenger":"https://static.wikia.nocookie.net/forsaken2024/images/7/7e/Messenger_Elliot.png/","Ellioto Spaghetti":"https://static.wikia.nocookie.net/forsaken2024/images/d/dd/Ellioto_Spaghetti_Elliot.png/","Medic":"https://static.wikia.nocookie.net/forsaken2024/images/5/55/Medic_Elliot.png/","Parlor Gubby":"https://static.wikia.nocookie.net/forsaken2024/images/9/9d/ParlorGubby.png/","Tom":"https://static.wikia.nocookie.net/forsaken2024/images/b/b8/TomIcon.png/","Dog":"https://static.wikia.nocookie.net/forsaken2024/images/c/c2/DogElliot.png/","Friend":"https://static.wikia.nocookie.net/forsaken2024/images/9/95/Friend_Elliot.png/","Gummy":"https://static.wikia.nocookie.net/forsaken2024/images/0/00/Gummy_Elliot.png/","Milestone I":"https://static.wikia.nocookie.net/forsaken2024/images/2/26/Elliotmilestone1.png/","Milestone II":"https://static.wikia.nocookie.net/forsaken2024/images/c/c6/Elliotmilestone2.png/","Milestone III":"https://static.wikia.nocookie.net/forsaken2024/images/4/44/Elliot_mileston_3_icon.webp/","Milestone IV":"https://static.wikia.nocookie.net/forsaken2024/images/d/de/Elliotmilestone4.png/","Treehugger":"https://static.wikia.nocookie.net/forsaken2024/images/3/3e/TreehuggerElliotIcon.png/","Artist":"https://static.wikia.nocookie.net/forsaken2024/images/d/dc/82225745759058.png/","Monster":"https://static.wikia.nocookie.net/forsaken2024/images/c/c3/Monsterrender.png/"},"chances":{"Default":"https://static.wikia.nocookie.net/forsaken2024/images/1/16/Chance777Icon.webp/","Homeless":"https://static.wikia.nocookie.net/forsaken2024/images/7/74/Homeless_Chance.png/","Double Crossed":"https://static.wikia.nocookie.net/forsaken2024/images/e/e3/Double_Crossed_Chance.png/","Agent":"https://static.wikia.nocookie.net/forsaken2024/images/1/1e/Agent_Chance.png/","Blue Day":"https://static.wikia.nocookie.net/forsaken2024/images/1/12/Bluedayd.png/","Pink Day":"https://static.wikia.nocookie.net/forsaken2024/images/e/e9/PinkDayIcon.png/","Workclock":"https://static.wikia.nocookie.net/forsaken2024/images/8/83/Workclockplaceholder.webp/","LMaD":"https://static.wikia.nocookie.net/forsaken2024/images/5/50/LMaD_Chance.png/","Fast Food":"https://static.wikia.nocookie.net/forsaken2024/images/a/a6/FastFoodIcon.png/","Lods of Emone":"https://static.wikia.nocookie.net/forsaken2024/images/4/43/Loadsamoney.png/","Mysterious Sheriff":"https://static.wikia.nocookie.net/forsaken2024/images/7/7f/Mysterious_sheriff_new_render_placeholder.png/","Take a Chance":"https://static.wikia.nocookie.net/forsaken2024/images/5/56/Take_a_Chance.png/","Federation":"https://static.wikia.nocookie.net/forsaken2024/images/9/97/FederationChance.png/","Dog":"https://static.wikia.nocookie.net/forsaken2024/images/f/f2/DC2.png/","Mr. Worldwide":"https://static.wikia.nocookie.net/forsaken2024/images/2/2e/Mistworldwiderend.png/","Pride":"https://static.wikia.nocookie.net/forsaken2024/images/9/93/PrideChanceIconRender.png/","Alien":"https://static.wikia.nocookie.net/forsaken2024/images/e/e2/AlienIcon.png/","Revolver":"https://static.wikia.nocookie.net/forsaken2024/images/5/59/Revolverhahaha.png/","Nayn":"https://static.wikia.nocookie.net/forsaken2024/images/4/40/Wafflecatofficalrender.png/","Jeff":"https://static.wikia.nocookie.net/forsaken2024/images/b/b1/Jeff_Chance.png/","Multi-Colored Bettor":"https://static.wikia.nocookie.net/forsaken2024/images/0/04/101506883806546.png/","Outlaw":"https://static.wikia.nocookie.net/forsaken2024/images/a/a0/OutlawChanceIcon.png/","Cool Bones":"https://static.wikia.nocookie.net/forsaken2024/images/0/03/Cool_bones_chance.png/","Avian Sight":"https://static.wikia.nocookie.net/forsaken2024/images/6/6f/Avian_Sight_Render.png/","Plushy":"https://static.wikia.nocookie.net/forsaken2024/images/d/da/PlushchanceShopRenderPlaceholder.png/","Chanceton":"https://static.wikia.nocookie.net/forsaken2024/images/3/3f/Chanceton_Banner.png/","Flipnote":"https://static.wikia.nocookie.net/forsaken2024/images/b/b4/Flipnote_Chance_V2.png/","Retro":"https://static.wikia.nocookie.net/forsaken2024/images/9/91/Sooretro.png/","Golden":"https://static.wikia.nocookie.net/forsaken2024/images/9/9b/Whoisbuyingthis.png/","Milestone I":"https://static.wikia.nocookie.net/forsaken2024/images/9/9f/Chancemilestone1.png/","Milestone II":"https://static.wikia.nocookie.net/forsaken2024/images/8/8a/Chancemilestone2.png/","Milestone III":"https://static.wikia.nocookie.net/forsaken2024/images/f/f4/Chance_prestige_1.jpg/","Milestone IV":"https://static.wikia.nocookie.net/forsaken2024/images/6/65/Chancemilestone4.png/","ULTRAKILL":"https://static.wikia.nocookie.net/forsaken2024/images/4/45/Chace_ultrakill_icon_full.png/","Mirror":"https://static.wikia.nocookie.net/forsaken2024/images/d/dd/MirrorIcon.png/","MLG":"https://static.wikia.nocookie.net/forsaken2024/images/d/da/MLG_chance_Render.png/","Artist":"https://static.wikia.nocookie.net/forsaken2024/images/3/31/104109342435529.png/","BrawlR Specialist":"https://static.wikia.nocookie.net/forsaken2024/images/2/27/BrawlRChance.png/"}}};
 const elliots = ["Default", "Supplier", "Milkman", "Pizza Man", "Cake", "Barista", "Paperpal", "Casual", "Bandit", "Manager", "Neo", "Ellioto Spaghetti", "Summer", "Retro", "Alien", "Messenger", "Dog", "Gummy", "Treehugger", "Artist", "Rudolph"];
 const nonElliots = ["Lulu", "Baker", "Sally", "Supermarket", "Bobo", "Caretaker", "Jordan", "Dued1", "Medic", "Parlor Gubby", "Tom", "Friend", "Monster", "Mercurial"];
 
-const chances = ["Default", "Homeless", "Double Crossed", "Agent", "Blue Day", "Pink Day", "Workclock", "LMaD", "Fast Food", "Lods of Emone", "Take a Chance", "Federation", "Dog", "Mr. WorldWide", "Pride", "Alien", "Nayn", "Multi-Colored Bettor", "Outlaw", "Cool Bones", "Avian Sight", "Plushy", "Flipnote", "Retro", "Golden", "ULTRAKILL", "Mirror", "Artist", "BrawlR Clockwork"];
+const chances = ["Default", "Homeless", "Double Crossed", "Agent", "Blue Day", "Pink Day", "Workclock", "LMaD", "Fast Food", "Lods of Emone", "Take a Chance", "Federation", "Dog", "Mr. WorldWide", "Pride", "Alien", "Nayn", "Multi-Colored Bettor", "Outlaw", "Cool Bones", "Avian Sight", "Plushy", "Flipnote", "Retro", "Golden", "ULTRAKILL", "Mirror", "Artist", "BrawlR Specialist"];
 const nonChances = ["Mysterious Sheriff", "Jeff", "Chanceton"];
 
 const milestones = ["Milestone I", "Milestone II", "Milestone III", "Milestone IV"];
 
 var music = new Audio("https://static.wikia.nocookie.net/forsaken2024/images/8/8b/NewRestingPlace.mp3");
 
-var skins;
+var skins = skinData;
 
-fetch("data.json").then(response => {
-    return response.json();
-}).then(data => {
-    skins = data;
-});
+// fetch("data.json").then(response => {
+//     return response.json();
+// }).then(data => {
+//     skins = data;
+// });
 
 
 function tooltipMouseover(id) {
@@ -80,11 +81,25 @@ function displayResult(lists, results) {
     var stringLists = JSON.stringify(lists), stringResults = JSON.stringify(results);
     document.cookie = `lists=${stringLists}`;
     document.cookie = `results=${stringResults}`;
+
+    document.getElementById("reroll").innerHTML = (
+        `<button class="submit rerollSound" onclick="reroll(0)">Reroll Elliot</button>
+        <button class="submit rerollSound" onclick="reroll(1)">Reroll Chance</button>`
+    );
 }
 
 function playMusic() {
     if (music.paused != true) music.pause();
     else music.play();
+}
+
+function rerollSound(e) {
+    var rerollSound = new Audio("https://static.wikia.nocookie.net/forsaken2024/images/4/46/Chance_reroll.mp3");
+
+    if (e.target.nodeName === "input") {
+        rerollSound.time = 0.01; 
+        rerollSound.play();
+    }
 }
 
 
@@ -107,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("listNonChances").innerHTML = listNonChances;
 
     var formSubmit = document.getElementById("paycheckForm");
-
     formSubmit.addEventListener("submit", function(e) {
         e.preventDefault();
         var formData = new FormData(formSubmit);
@@ -151,5 +165,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         rollBoth(lists);
     });
+
+    var rerollSound = document.getElementsByClassName("rerollSound");
+    Object.values(rerollSound).forEach(e => {
+        e.addEventListener("click", rerollSound);
+    })
 });
     
